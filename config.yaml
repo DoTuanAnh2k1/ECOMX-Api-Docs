@@ -3,9 +3,13 @@ info:
   title: Ecommerce New Version
   version: 1.0.0
 servers:
-  - url: 'http://localhost:8080/'
-  - url: 'https://api.ecomx.vn'
-  - url: 'http://{{kytesoft_host}}'
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/ANHDT2605/ECOMX/1.0.0
+  - url: http://localhost:3200
+  - url: https://api.ecomx.vn
+  - url: http://{{kytesoft_host}}
+  - url: https://abs.kytesoft.com
 components:
   securitySchemes:
     bearerAuth:
@@ -14,7 +18,6 @@ components:
     noauthAuth:
       type: http
       scheme: noauth
-  schemas: {}
 tags:
   - name: App
   - name: App > Category
@@ -26,10 +29,12 @@ tags:
   - name: App > Product
   - name: App > Product > Like
   - name: App > Product > View
+  - name: App > Product > Search
   - name: App > Comment
   - name: App > Comment > Product
   - name: App > Comment > Product > SubComment
   - name: App > Comment > Newsfeed
+  - name: App > Comment > MyComment
   - name: App > Store
   - name: App > Store > Follow
   - name: App > BuyGroup
@@ -39,6 +44,7 @@ tags:
   - name: App > Service
   - name: App > Order
   - name: App > Delivery
+  - name: App > PopularSearch
   - name: Seller
   - name: Seller > Address
   - name: Seller > Seller
@@ -75,6 +81,8 @@ tags:
   - name: Admin > Category
   - name: Admin > Order
   - name: Admin > Newsfeed
+  - name: Admin > PopularSearch
+  - name: Upload Image
 paths:
   /consumer/list/category:
     get:
@@ -215,7 +223,8 @@ paths:
             schema:
               type: object
               example:
-                refreshToken: eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQ2MzQ5NTgsImp0aSI6IjhmMDQ4Y2RjLTczMGUtNGU1ZC04OTUwLWU5OTViY2JkMDJhZiIsImlzcyI6ImVjb21tZXJjZSIsImlkIjoiNjQ2MTg1NmYxNTQ3M2NhMTMwMjA0N2E3Iiwicm9sZSI6IkNPTlNVTUVSIn0.ZtxRNcfUIZV2ryfIsjUdI6UrpDQh-bNdWuYYwxBP12d2lIQALams4D-G21qsGr48HfhBhXlbL87QTM1MvjAfN4j8PgtYI6jej1eD5bEa1WLSyWOijA-Ev35M-gq6ZCsxqwL83KRNUd5_vyYBCQQeh4ANSP8ktOMiUPv5QotKiUJkAQFhcpdsG2UMG93k3n9uXYylnH0dfQTG9pnAm30ZvGIvuheM_QxCuO678rydj0Up1HbPXwL6LP9dRzfSBKR91ql5w_thEUfdaD1nY7foRN-LBJJ8jtFbzQJrQPBkTgYdG47HI35kMA9spCFIEQZ8jLxRgn1jPNbfO-P1tGjVhObZ23iGUhNSRbfRvcjlM73G9oL-6ldSrt1uc7SWx0qaTKOzhn6dDTMePDznj5zCdf9lO2iz16xcnCcc1e9Xku3u3WHjv8F1z3-lKlXaJ0I2gkHv3qXNwTcp-_lxms4eUuLgTOn2NYoYy9at61tLffZMEuTmgpuKzCb8fhrkhSfEvqBob_Q4Ny-TSYjTbqSFpm-mqcTdd-kj2T-t8VncyZcTpp59Ih4jc8lBer6Fg-vWhQNg6Z9D4Q0LrniPYxbCOca35Oj0YCij8y_8vuF3ONshLP8eMApXjrbjdxGZ0B8uHeR8NPuISPlMqL7Bwe60cB5p3Z4pHt0ChPpCjTci4gU
+                refreshToken: >-
+                  eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQ2MzQ5NTgsImp0aSI6IjhmMDQ4Y2RjLTczMGUtNGU1ZC04OTUwLWU5OTViY2JkMDJhZiIsImlzcyI6ImVjb21tZXJjZSIsImlkIjoiNjQ2MTg1NmYxNTQ3M2NhMTMwMjA0N2E3Iiwicm9sZSI6IkNPTlNVTUVSIn0.ZtxRNcfUIZV2ryfIsjUdI6UrpDQh-bNdWuYYwxBP12d2lIQALams4D-G21qsGr48HfhBhXlbL87QTM1MvjAfN4j8PgtYI6jej1eD5bEa1WLSyWOijA-Ev35M-gq6ZCsxqwL83KRNUd5_vyYBCQQeh4ANSP8ktOMiUPv5QotKiUJkAQFhcpdsG2UMG93k3n9uXYylnH0dfQTG9pnAm30ZvGIvuheM_QxCuO678rydj0Up1HbPXwL6LP9dRzfSBKR91ql5w_thEUfdaD1nY7foRN-LBJJ8jtFbzQJrQPBkTgYdG47HI35kMA9spCFIEQZ8jLxRgn1jPNbfO-P1tGjVhObZ23iGUhNSRbfRvcjlM73G9oL-6ldSrt1uc7SWx0qaTKOzhn6dDTMePDznj5zCdf9lO2iz16xcnCcc1e9Xku3u3WHjv8F1z3-lKlXaJ0I2gkHv3qXNwTcp-_lxms4eUuLgTOn2NYoYy9at61tLffZMEuTmgpuKzCb8fhrkhSfEvqBob_Q4Ny-TSYjTbqSFpm-mqcTdd-kj2T-t8VncyZcTpp59Ih4jc8lBer6Fg-vWhQNg6Z9D4Q0LrniPYxbCOca35Oj0YCij8y_8vuF3ONshLP8eMApXjrbjdxGZ0B8uHeR8NPuISPlMqL7Bwe60cB5p3Z4pHt0ChPpCjTci4gU
       security:
         - bearerAuth: []
       responses:
@@ -234,11 +243,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: name
           in: query
           schema:
@@ -489,7 +500,8 @@ paths:
         - name: phone
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0989875350'
       responses:
         '200':
           description: Successful response
@@ -527,7 +539,7 @@ paths:
             schema:
               type: object
               example:
-                productId: 6461b4d815473ca1302047ae
+                productId: 64756cf98c4a8de6ca965cb4
       security:
         - bearerAuth: []
       responses:
@@ -546,11 +558,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '1'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '10'
       responses:
         '200':
           description: Successful response
@@ -567,11 +581,82 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '1'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/history/searchs:
+    get:
+      tags:
+        - App > Product > Search
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: string
+          example: '1'
+        - name: limit
+          in: query
+          schema:
+            type: string
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/search/product:
+    get:
+      tags:
+        - App > Product > Search
+      summary: Search Auth
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: string
+          example: '1'
+        - name: name
+          in: query
+          schema:
+            type: string
+          example: Bộ đồ ngủ
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/search/products:
+    get:
+      tags:
+        - App > Product > Search
+      summary: Search
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: string
+          example: '1'
+        - name: name
+          in: query
+          schema:
+            type: string
+          example: haha
       responses:
         '200':
           description: Successful response
@@ -667,17 +752,19 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /v1/consumer/products/6461b4d815473ca1302047ae:
+  /v1/consumer/products/64756cf98c4a8de6ca965cb4:
     get:
       tags:
         - App > Product
@@ -689,7 +776,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /v1/consumer/product/6461b4d815473ca1302047ae:
+  /v1/consumer/product/64756cf98c4a8de6ca965cb4:
     get:
       tags:
         - App > Product
@@ -769,8 +856,8 @@ paths:
             schema:
               type: object
               example:
-                content: Very Nice
-                commentId: 6464771bc31d61146fab6dda
+                content: Very Niceeeee
+                commentId: 6464771bc31d61246fab6eef
       security:
         - bearerAuth: []
       responses:
@@ -789,12 +876,8 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
-        - name: commentId
-          in: query
-          schema:
             type: string
-          example: 646d64898fad821314f4acf6
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -833,7 +916,7 @@ paths:
                 content: Very Nice
                 likeNum: 10
                 rating: 5
-                productId: 646c741e64587d643e7c2036
+                productId: 64756d088c4a8de6ca965d0d
       security:
         - bearerAuth: []
       responses:
@@ -852,11 +935,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -912,7 +997,8 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '1'
         - name: newsfeedId
           in: query
           schema:
@@ -937,6 +1023,24 @@ paths:
                 commentId: 6461b4d815473ca1302047ae
       security:
         - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/comments:
+    get:
+      tags:
+        - App > Comment > MyComment
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: string
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -972,7 +1076,8 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1042,7 +1147,8 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '1'
         - name: productId
           in: query
           schema:
@@ -1153,11 +1259,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -1254,11 +1362,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -1333,11 +1443,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -1366,7 +1478,7 @@ paths:
             schema:
               type: object
               example:
-                name: test4
+                name: Khoa
                 phone: '0989876565'
                 province: Hồ Chí Minh
                 provinceId: 7f8as78fd8asdff8a9sf
@@ -1433,11 +1545,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -1455,6 +1569,24 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /delivery/v1/address/district:
+    get:
+      tags:
+        - App > Address
+      summary: District
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: provinceId
+          in: query
+          schema:
+            type: string
+          example: '62'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /delivery/v1/address/ward:
     get:
       tags:
@@ -1466,7 +1598,8 @@ paths:
         - name: districtId
           in: query
           schema:
-            type: integer
+            type: string
+          example: '677'
       responses:
         '200':
           description: Successful response
@@ -1535,11 +1668,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -1556,12 +1691,12 @@ paths:
             schema:
               type: object
               example:
-                productId: 646c740e64587d643e7c1fe8
+                productId: 64756cf98c4a8de6ca965cb4
                 quantity: 2
                 isGroupBuy: false
                 phone: '0977666812'
                 address: ngõ 1 phu do
-                wardId: 1009
+                wardId: 10803
                 paymentType: type-payment-1
       security:
         - bearerAuth: []
@@ -1582,12 +1717,15 @@ paths:
               type: object
               example:
                 name: Nguyễn Khoa
-                productId: 6450391104c4b2260daced4c
+                productId: 64742de64f45e4a22421c0fe
                 quantity: 2
                 isGroupBuy: true
+                wardId: 10977
                 phone: '0989876565'
                 address: 12 Lý Thường Kiệt quận 5 tp Hồ Chí Minh
                 paymentType: CASH
+                serviceType: GHN-2-53320
+                note: ' hahaha hahaa'
       security:
         - bearerAuth: []
       responses:
@@ -1606,17 +1744,19 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /v1/consumer/orders/64503acfbf5ec4cdb1891235:
+  /v1/consumer/orders/6474c5093e1746063e4222ca:
     get:
       tags:
         - App > Order
@@ -1696,11 +1836,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -1713,6 +1855,18 @@ paths:
       summary: Detail
       security:
         - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/popularSearchs:
+    get:
+      tags:
+        - App > PopularSearch
+      summary: List
+      security:
+        - noauthAuth: []
       responses:
         '200':
           description: Successful response
@@ -1757,11 +1911,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -1805,11 +1961,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -2058,7 +2216,8 @@ paths:
         - name: phone
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0989875351'
       responses:
         '200':
           description: Successful response
@@ -2332,7 +2491,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /v1/seller/products/646c73f964587d643e7c1fc4:
+  /v1/seller/products/646caf44b3f6b1446f26ee48:
     get:
       tags:
         - Seller > Product
@@ -2369,8 +2528,9 @@ paths:
               example:
                 type: Mall
                 name: Cửa hàng quần áo
-                avatar: 'https://kynguyenlamdep.com/wp-content/uploads/2022/06/anh-gai-xinh-cuc-dep.jpg'
-                background: 'https://images.unsplash.com/photo-1553095066-5014bc7b7f2d'
+                avatar: >-
+                  https://kynguyenlamdep.com/wp-content/uploads/2022/06/anh-gai-xinh-cuc-dep.jpg
+                background: https://images.unsplash.com/photo-1553095066-5014bc7b7f2d
       security:
         - bearerAuth: []
       responses:
@@ -2390,8 +2550,9 @@ paths:
               example:
                 id: 644f1e8ffeeb8e1bb3b5cf04
                 name: Cửa hàng quần áo
-                avatar: 'https://kynguyenlamdep.com/wp-content/uploads/2022/06/anh-gai-xinh-cuc-dep.jpg'
-                background: 'https://images.unsplash.com/photo-1553095066-5014bc7b7f2d'
+                avatar: >-
+                  https://kynguyenlamdep.com/wp-content/uploads/2022/06/anh-gai-xinh-cuc-dep.jpg
+                background: https://images.unsplash.com/photo-1553095066-5014bc7b7f2d
       security:
         - bearerAuth: []
       responses:
@@ -2410,11 +2571,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -2485,11 +2648,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -2590,11 +2755,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -2660,11 +2827,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -2758,11 +2927,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -2791,11 +2962,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -2901,11 +3074,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -3049,11 +3224,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -3111,11 +3288,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -3132,11 +3311,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -3153,11 +3334,13 @@ paths:
         - name: page
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
         - name: limit
           in: query
           schema:
-            type: integer
+            type: string
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -3175,4 +3358,55 @@ paths:
           description: Successful response
           content:
             application/json: {}
-x-internal: false
+  /v1/admin/popularSearch:
+    post:
+      tags:
+        - Admin > PopularSearch
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Nguyễn Khoa
+                image: 64742de64f45e4a22421c0fe
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/images/upload:
+    post:
+      tags:
+        - Upload Image
+      summary: https://abs.kytesoft.com/v1/images/upload
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                metadata:
+                  type: string
+                  example: >-
+                    {"usedFor": "product", "productId": "1", "domain":
+                    "ecomx.vn"}
+                '':
+                  type: string
+      parameters:
+        - name: x-request-id
+          in: header
+          schema:
+            type: string
+          example: 84d3fc9652c9a87884e9ebdd579fe8f4
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

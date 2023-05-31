@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-responsive.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+  <script src="assets/js/main.js" type="text/javascript"></script>
+
+  <title>REST API Resources</title>
+</head>
+<body>
+  <div class="header">
+    <div class="top-bar">
+      <h1 id="logo"><a class="logo" href="/"><span>Swagger</span><span class="light">API Docs</span></a></h1>
+    </div>
+  </div>
+  <div class="model-container"></div>
+  <div class="content">
+    <div class="box clearfix">
+      <div class="sidebar">
+        <div class="section-box">
+          <div class="section-header">
+            Overview
+          </div>
+          <ul>
+            <li>Getting Started</li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminArticleApi">AdminArticleApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminArticleApi#v1ArticleDelete">v1ArticleDelete</a></li>
+            <li><a href="#!/AdminArticleApi#v1ArticlePatch">v1ArticlePatch</a></li>
+            <li><a href="#!/AdminArticleApi#v1ArticlePost">v1ArticlePost</a></li>
+            <li><a href="#!/AdminArticleApi#v1Articles6304a736C3ed4b5fA0811610aea2ad9fGet">v1Articles6304a736C3ed4b5fA0811610aea2ad9fGet</a></li>
+            <li><a href="#!/AdminArticleApi#v1ArticlesGet">v1ArticlesGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminAuthApi">AdminAuthApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminAuthApi#v1AdminLoginPost">v1AdminLoginPost</a></li>
+            <li><a href="#!/AdminAuthApi#v1AdminUserGet">v1AdminUserGet</a></li>
+            <li><a href="#!/AdminAuthApi#v1AdminUsersExistGet">v1AdminUsersExistGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminBlogApi">AdminBlogApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminBlogApi#v1AdminBlogDelete">v1AdminBlogDelete</a></li>
+            <li><a href="#!/AdminBlogApi#v1AdminBlogPatch">v1AdminBlogPatch</a></li>
+            <li><a href="#!/AdminBlogApi#v1AdminBlogPost">v1AdminBlogPost</a></li>
+            <li><a href="#!/AdminBlogApi#v1AdminBlogs644bf0c5b9f3e07509eb6137Get">v1AdminBlogs644bf0c5b9f3e07509eb6137Get</a></li>
+            <li><a href="#!/AdminBlogApi#v1AdminBlogsGet">v1AdminBlogsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminCategoryApi">AdminCategoryApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminCategoryApi#v1AdminCategories6448f775ba39880825f5f2c1Get">v1AdminCategories6448f775ba39880825f5f2c1Get</a></li>
+            <li><a href="#!/AdminCategoryApi#v1AdminCategoriesGet">v1AdminCategoriesGet</a></li>
+            <li><a href="#!/AdminCategoryApi#v1AdminCategoryDelete">v1AdminCategoryDelete</a></li>
+            <li><a href="#!/AdminCategoryApi#v1AdminCategoryPatch">v1AdminCategoryPatch</a></li>
+            <li><a href="#!/AdminCategoryApi#v1AdminCategoryPost">v1AdminCategoryPost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminCommentApi">AdminCommentApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminCommentApi#v1AdminCommentPost">v1AdminCommentPost</a></li>
+            <li><a href="#!/AdminCommentApi#v1AdminProductPatch">v1AdminProductPatch</a></li>
+            <li><a href="#!/AdminCommentApi#v1AdminProducts644b844a2e0fd2b3efbd2885Get">v1AdminProducts644b844a2e0fd2b3efbd2885Get</a></li>
+            <li><a href="#!/AdminCommentApi#v1ConsumerProductsGet">v1ConsumerProductsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminInventoryApi">AdminInventoryApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminInventoryApi#v1AdminInventories6448e46e0461a201d2d6bdd0Get">v1AdminInventories6448e46e0461a201d2d6bdd0Get</a></li>
+            <li><a href="#!/AdminInventoryApi#v1AdminInventoriesGet">v1AdminInventoriesGet</a></li>
+            <li><a href="#!/AdminInventoryApi#v1AdminInventoryDelete">v1AdminInventoryDelete</a></li>
+            <li><a href="#!/AdminInventoryApi#v1AdminInventoryPatch">v1AdminInventoryPatch</a></li>
+            <li><a href="#!/AdminInventoryApi#v1AdminInventoryPost">v1AdminInventoryPost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminNewsfeedApi">AdminNewsfeedApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminNewsfeedApi#v1NewsfeedDelete">v1NewsfeedDelete</a></li>
+            <li><a href="#!/AdminNewsfeedApi#v1NewsfeedPatch">v1NewsfeedPatch</a></li>
+            <li><a href="#!/AdminNewsfeedApi#v1NewsfeedPost">v1NewsfeedPost</a></li>
+            <li><a href="#!/AdminNewsfeedApi#v1Newsfeeds6442bc33c35e745ae483c0feGet">v1Newsfeeds6442bc33c35e745ae483c0feGet</a></li>
+            <li><a href="#!/AdminNewsfeedApi#v1NewsfeedsGet">v1NewsfeedsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminOrderApi">AdminOrderApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminOrderApi#v1OrderPost">v1OrderPost</a></li>
+            <li><a href="#!/AdminOrderApi#v1ProductDelete">v1ProductDelete</a></li>
+            <li><a href="#!/AdminOrderApi#v1StorePatch">v1StorePatch</a></li>
+            <li><a href="#!/AdminOrderApi#v1Stores6442bc33c35e745ae483c0feGet">v1Stores6442bc33c35e745ae483c0feGet</a></li>
+            <li><a href="#!/AdminOrderApi#v1StoresGet">v1StoresGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminPopularSearchApi">AdminPopularSearchApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminPopularSearchApi#v1AdminPopularSearchPost">v1AdminPopularSearchPost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminProductApi">AdminProductApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminProductApi#v1AdminProductPost">v1AdminProductPost</a></li>
+            <li><a href="#!/AdminProductApi#v1AdminProducts6455a8887b733d10e0dffbcdGet">v1AdminProducts6455a8887b733d10e0dffbcdGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminSellerApi">AdminSellerApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminSellerApi#v1AdminSellerDelete">v1AdminSellerDelete</a></li>
+            <li><a href="#!/AdminSellerApi#v1AdminSellerPatch">v1AdminSellerPatch</a></li>
+            <li><a href="#!/AdminSellerApi#v1AdminSellerPost">v1AdminSellerPost</a></li>
+            <li><a href="#!/AdminSellerApi#v1AdminSellers64548d415583dff05ef37170Get">v1AdminSellers64548d415583dff05ef37170Get</a></li>
+            <li><a href="#!/AdminSellerApi#v1AdminSellersGet">v1AdminSellersGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminStoreApi">AdminStoreApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminStoreApi#v1AdminProductDelete">v1AdminProductDelete</a></li>
+            <li><a href="#!/AdminStoreApi#v1AdminStorePatch">v1AdminStorePatch</a></li>
+            <li><a href="#!/AdminStoreApi#v1AdminStorePost">v1AdminStorePost</a></li>
+            <li><a href="#!/AdminStoreApi#v1AdminStores644f1e8ffeeb8e1bb3b5cf04Get">v1AdminStores644f1e8ffeeb8e1bb3b5cf04Get</a></li>
+            <li><a href="#!/AdminStoreApi#v1AdminStoresGet">v1AdminStoresGet</a></li>
+            <li><a href="#!/AdminStoreApi#v1StorePost">v1StorePost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminTagApi">AdminTagApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminTagApi#v1TagPost">v1TagPost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AdminUserApi">AdminUserApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AdminUserApi#v1AdminRegisterPost">v1AdminRegisterPost</a></li>
+            <li><a href="#!/AdminUserApi#v1TagDelete">v1TagDelete</a></li>
+            <li><a href="#!/AdminUserApi#v1TagPatch">v1TagPatch</a></li>
+            <li><a href="#!/AdminUserApi#v1TagsA37181f5C7f547abAcba1c6335b18790Get">v1TagsA37181f5C7f547abAcba1c6335b18790Get</a></li>
+            <li><a href="#!/AdminUserApi#v1TagsGet">v1TagsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppAddressApi">AppAddressApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppAddressApi#deliveryV1AddressDistrictGet">deliveryV1AddressDistrictGet</a></li>
+            <li><a href="#!/AppAddressApi#deliveryV1AddressWardGet">deliveryV1AddressWardGet</a></li>
+            <li><a href="#!/AppAddressApi#v1ConsumerAddressPost">v1ConsumerAddressPost</a></li>
+            <li><a href="#!/AppAddressApi#v1ConsumerAddressesDefaultGet">v1ConsumerAddressesDefaultGet</a></li>
+            <li><a href="#!/AppAddressApi#v1ConsumerAddressesGet">v1ConsumerAddressesGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppAuthApi">AppAuthApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppAuthApi#v1ConsumerLoginPost">v1ConsumerLoginPost</a></li>
+            <li><a href="#!/AppAuthApi#v1ConsumerRegisterPhonePost">v1ConsumerRegisterPhonePost</a></li>
+            <li><a href="#!/AppAuthApi#v1ConsumerRegisterPost">v1ConsumerRegisterPost</a></li>
+            <li><a href="#!/AppAuthApi#v1ConsumerRenewAccessPost">v1ConsumerRenewAccessPost</a></li>
+            <li><a href="#!/AppAuthApi#v1ConsumerUserGet">v1ConsumerUserGet</a></li>
+            <li><a href="#!/AppAuthApi#v1ConsumerUserPatch">v1ConsumerUserPatch</a></li>
+            <li><a href="#!/AppAuthApi#v1ConsumerUserUpdateAddressPatch">v1ConsumerUserUpdateAddressPatch</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppBlogApi">AppBlogApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppBlogApi#v1ConsumerBlogPatch">v1ConsumerBlogPatch</a></li>
+            <li><a href="#!/AppBlogApi#v1ConsumerBlogsGet">v1ConsumerBlogsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppBuyGroupApi">AppBuyGroupApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppBuyGroupApi#v1ConsumerBuyGroupPost">v1ConsumerBuyGroupPost</a></li>
+            <li><a href="#!/AppBuyGroupApi#v1ConsumerBuyGroupsGet">v1ConsumerBuyGroupsGet</a></li>
+            <li><a href="#!/AppBuyGroupApi#v1ConsumerProducts644b863088be71f8d066f809Get">v1ConsumerProducts644b863088be71f8d066f809Get</a></li>
+            <li><a href="#!/AppBuyGroupApi#v1ProductLikePost">v1ProductLikePost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppCategoryApi">AppCategoryApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppCategoryApi#consumerListCategoryGet">consumerListCategoryGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppCommentMyCommentApi">AppCommentMyCommentApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppCommentMyCommentApi#v1ConsumerCommentsGet">v1ConsumerCommentsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppCommentNewsfeedApi">AppCommentNewsfeedApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppCommentNewsfeedApi#v1ConsumerCommentLikeNewsfeedPost">v1ConsumerCommentLikeNewsfeedPost</a></li>
+            <li><a href="#!/AppCommentNewsfeedApi#v1ConsumerCommentNewsfeedPost">v1ConsumerCommentNewsfeedPost</a></li>
+            <li><a href="#!/AppCommentNewsfeedApi#v1ConsumerCommentsNewsfeedGet">v1ConsumerCommentsNewsfeedGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppCommentProductApi">AppCommentProductApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppCommentProductApi#v1ConsumerCommentLikeProductPost">v1ConsumerCommentLikeProductPost</a></li>
+            <li><a href="#!/AppCommentProductApi#v1ConsumerCommentProductPost">v1ConsumerCommentProductPost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppCommentProductSubCommentApi">AppCommentProductSubCommentApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppCommentProductSubCommentApi#v1ConsumerSubcommentLikeProductPost">v1ConsumerSubcommentLikeProductPost</a></li>
+            <li><a href="#!/AppCommentProductSubCommentApi#v1ConsumerSubcommentProductPost">v1ConsumerSubcommentProductPost</a></li>
+            <li><a href="#!/AppCommentProductSubCommentApi#v1ConsumerSubcommentsProductGet">v1ConsumerSubcommentsProductGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppContactApi">AppContactApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppContactApi#v1ConsumerContact645b3faa89a707379c99d966Get">v1ConsumerContact645b3faa89a707379c99d966Get</a></li>
+            <li><a href="#!/AppContactApi#v1ConsumerContactPost">v1ConsumerContactPost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppHomeApi">AppHomeApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppHomeApi#v1ConsumerBlogPost">v1ConsumerBlogPost</a></li>
+            <li><a href="#!/AppHomeApi#v1ConsumerProducts64432e150fb122c5f77bdb26Get">v1ConsumerProducts64432e150fb122c5f77bdb26Get</a></li>
+            <li><a href="#!/AppHomeApi#v1ProductPatch">v1ProductPatch</a></li>
+            <li><a href="#!/AppHomeApi#v1Products6440b3ac3dd818d4b18a541eGet">v1Products6440b3ac3dd818d4b18a541eGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppNewsfeedApi">AppNewsfeedApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppNewsfeedApi#v1ConsumerNewsfeedDelete">v1ConsumerNewsfeedDelete</a></li>
+            <li><a href="#!/AppNewsfeedApi#v1ConsumerNewsfeedPatch">v1ConsumerNewsfeedPatch</a></li>
+            <li><a href="#!/AppNewsfeedApi#v1ConsumerNewsfeedPost">v1ConsumerNewsfeedPost</a></li>
+            <li><a href="#!/AppNewsfeedApi#v1ConsumerNewsfeeds644b4dd25e9a55b2ad053a69Get">v1ConsumerNewsfeeds644b4dd25e9a55b2ad053a69Get</a></li>
+            <li><a href="#!/AppNewsfeedApi#v1ConsumerNewsfeedsGet">v1ConsumerNewsfeedsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppOrderApi">AppOrderApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppOrderApi#v1ConsumerOrderDeliveryPreviewPost">v1ConsumerOrderDeliveryPreviewPost</a></li>
+            <li><a href="#!/AppOrderApi#v1ConsumerOrderPost">v1ConsumerOrderPost</a></li>
+            <li><a href="#!/AppOrderApi#v1ConsumerOrders6474c5093e1746063e4222caGet">v1ConsumerOrders6474c5093e1746063e4222caGet</a></li>
+            <li><a href="#!/AppOrderApi#v1ConsumerOrdersGet">v1ConsumerOrdersGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppPopularSearchApi">AppPopularSearchApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppPopularSearchApi#v1ConsumerPopularSearchsGet">v1ConsumerPopularSearchsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppProductApi">AppProductApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppProductApi#v1ConsumerProduct64756cf98c4a8de6ca965cb4Get">v1ConsumerProduct64756cf98c4a8de6ca965cb4Get</a></li>
+            <li><a href="#!/AppProductApi#v1ConsumerProductPost">v1ConsumerProductPost</a></li>
+            <li><a href="#!/AppProductApi#v1ConsumerProducts64756cf98c4a8de6ca965cb4Get">v1ConsumerProducts64756cf98c4a8de6ca965cb4Get</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppProductLikeApi">AppProductLikeApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppProductLikeApi#v1ConsumerProductLikePost">v1ConsumerProductLikePost</a></li>
+            <li><a href="#!/AppProductLikeApi#v1ConsumerProductsLikeGet">v1ConsumerProductsLikeGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppProductSearchApi">AppProductSearchApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppProductSearchApi#v1ConsumerHistorySearchsGet">v1ConsumerHistorySearchsGet</a></li>
+            <li><a href="#!/AppProductSearchApi#v1ConsumerSearchProductGet">v1ConsumerSearchProductGet</a></li>
+            <li><a href="#!/AppProductSearchApi#v1ConsumerSearchProductsGet">v1ConsumerSearchProductsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppProductViewApi">AppProductViewApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppProductViewApi#v1ConsumerProductsViewGet">v1ConsumerProductsViewGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppServiceApi">AppServiceApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppServiceApi#deliveryV1AddressProvinceGet">deliveryV1AddressProvinceGet</a></li>
+            <li><a href="#!/AppServiceApi#v1ConsumerServicePost">v1ConsumerServicePost</a></li>
+            <li><a href="#!/AppServiceApi#v1ConsumerServicesGet">v1ConsumerServicesGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppStoreApi">AppStoreApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppStoreApi#v1ConsumerStores644f1e8ffeeb8e1bb3b5cf04Get">v1ConsumerStores644f1e8ffeeb8e1bb3b5cf04Get</a></li>
+            <li><a href="#!/AppStoreApi#v1ConsumerStoresLikePost">v1ConsumerStoresLikePost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppStoreFollowApi">AppStoreFollowApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppStoreFollowApi#v1ConsumerStoreFollowPost">v1ConsumerStoreFollowPost</a></li>
+            <li><a href="#!/AppStoreFollowApi#v1ConsumerStoresFollowGet">v1ConsumerStoresFollowGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AppUserApi">AppUserApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AppUserApi#v1ConsumerUsersExistGet">v1ConsumerUsersExistGet</a></li>
+            <li><a href="#!/AppUserApi#v1UserRegisterPost">v1UserRegisterPost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerAddressApi">SellerAddressApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerAddressApi#v1ConsumerAddressDelete">v1ConsumerAddressDelete</a></li>
+            <li><a href="#!/SellerAddressApi#v1ConsumerAddressPatch">v1ConsumerAddressPatch</a></li>
+            <li><a href="#!/SellerAddressApi#v1ConsumerAddresses645b6e3d97f190f66a16bc79Get">v1ConsumerAddresses645b6e3d97f190f66a16bc79Get</a></li>
+            <li><a href="#!/SellerAddressApi#v1SellerAddressPost">v1SellerAddressPost</a></li>
+            <li><a href="#!/SellerAddressApi#v1SellerAddressesGet">v1SellerAddressesGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerAuthApi">SellerAuthApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerAuthApi#v1SellerBankAccountGet">v1SellerBankAccountGet</a></li>
+            <li><a href="#!/SellerAuthApi#v1SellerChangeEmailPost">v1SellerChangeEmailPost</a></li>
+            <li><a href="#!/SellerAuthApi#v1SellerChangePasswordPost">v1SellerChangePasswordPost</a></li>
+            <li><a href="#!/SellerAuthApi#v1SellerChangeStoreNamePost">v1SellerChangeStoreNamePost</a></li>
+            <li><a href="#!/SellerAuthApi#v1SellerEnterpriseGet">v1SellerEnterpriseGet</a></li>
+            <li><a href="#!/SellerAuthApi#v1SellerLoginPost">v1SellerLoginPost</a></li>
+            <li><a href="#!/SellerAuthApi#v1SellerRegisterPost">v1SellerRegisterPost</a></li>
+            <li><a href="#!/SellerAuthApi#v1SellerStoreGet">v1SellerStoreGet</a></li>
+            <li><a href="#!/SellerAuthApi#v1SellerUserGet">v1SellerUserGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerBankApi">SellerBankApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerBankApi#v1SellerBankDelete">v1SellerBankDelete</a></li>
+            <li><a href="#!/SellerBankApi#v1SellerBankPatch">v1SellerBankPatch</a></li>
+            <li><a href="#!/SellerBankApi#v1SellerBankPost">v1SellerBankPost</a></li>
+            <li><a href="#!/SellerBankApi#v1SellerBanks644bf0c5b9f3e07509eb6137Get">v1SellerBanks644bf0c5b9f3e07509eb6137Get</a></li>
+            <li><a href="#!/SellerBankApi#v1SellerBanksGet">v1SellerBanksGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerBannerApi">SellerBannerApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerBannerApi#v1SellerBannerDelete">v1SellerBannerDelete</a></li>
+            <li><a href="#!/SellerBannerApi#v1SellerBannerPatch">v1SellerBannerPatch</a></li>
+            <li><a href="#!/SellerBannerApi#v1SellerBannerPost">v1SellerBannerPost</a></li>
+            <li><a href="#!/SellerBannerApi#v1SellerBanners645b1572c2b45943eb1d4eceGet">v1SellerBanners645b1572c2b45943eb1d4eceGet</a></li>
+            <li><a href="#!/SellerBannerApi#v1SellerBannersGet">v1SellerBannersGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerBlogApi">SellerBlogApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerBlogApi#v1SellerBlogDelete">v1SellerBlogDelete</a></li>
+            <li><a href="#!/SellerBlogApi#v1SellerBlogPost">v1SellerBlogPost</a></li>
+            <li><a href="#!/SellerBlogApi#v1SellerBlogsGet">v1SellerBlogsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerBrandApi">SellerBrandApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerBrandApi#v1SellerBrandDelete">v1SellerBrandDelete</a></li>
+            <li><a href="#!/SellerBrandApi#v1SellerBrandPatch">v1SellerBrandPatch</a></li>
+            <li><a href="#!/SellerBrandApi#v1SellerBrandPost">v1SellerBrandPost</a></li>
+            <li><a href="#!/SellerBrandApi#v1SellerBrands646ae9c10540afc9993cd9edGet">v1SellerBrands646ae9c10540afc9993cd9edGet</a></li>
+            <li><a href="#!/SellerBrandApi#v1SellerBrandsGet">v1SellerBrandsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerCommentProductApi">SellerCommentProductApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerCommentProductApi#v1ConsumerCommentsProductGet">v1ConsumerCommentsProductGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerContactApi">SellerContactApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerContactApi#v1SellerContactDelete">v1SellerContactDelete</a></li>
+            <li><a href="#!/SellerContactApi#v1SellerContactPatch">v1SellerContactPatch</a></li>
+            <li><a href="#!/SellerContactApi#v1SellerContactsGet">v1SellerContactsGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerEnterpriseApi">SellerEnterpriseApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerEnterpriseApi#v1SellerEnterprisePost">v1SellerEnterprisePost</a></li>
+            <li><a href="#!/SellerEnterpriseApi#v1SellerEnterprisesGet">v1SellerEnterprisesGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerInventoryApi">SellerInventoryApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerInventoryApi#v1SellerInventories64657cc4c31d61146fab6defGet">v1SellerInventories64657cc4c31d61146fab6defGet</a></li>
+            <li><a href="#!/SellerInventoryApi#v1SellerInventoriesGet">v1SellerInventoriesGet</a></li>
+            <li><a href="#!/SellerInventoryApi#v1SellerInventoryPatch">v1SellerInventoryPatch</a></li>
+            <li><a href="#!/SellerInventoryApi#v1SellerInventoryPost">v1SellerInventoryPost</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerProductApi">SellerProductApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerProductApi#v1SellerProductPost">v1SellerProductPost</a></li>
+            <li><a href="#!/SellerProductApi#v1SellerProducts646caf44b3f6b1446f26ee48Get">v1SellerProducts646caf44b3f6b1446f26ee48Get</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerProductFakeApi">SellerProductFakeApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerProductFakeApi#v1SellerFakeGet">v1SellerFakeGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerSellerApi">SellerSellerApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerSellerApi#v1SellerProducts645adcb3a7293ceedfca27c9Get">v1SellerProducts645adcb3a7293ceedfca27c9Get</a></li>
+            <li><a href="#!/SellerSellerApi#v1SellerSellerPost">v1SellerSellerPost</a></li>
+            <li><a href="#!/SellerSellerApi#v1SellerSellersGet">v1SellerSellersGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SellerStoreApi">SellerStoreApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SellerStoreApi#v1SellerStorePost">v1SellerStorePost</a></li>
+            <li><a href="#!/SellerStoreApi#v1SellerStoresGet">v1SellerStoresGet</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/UploadImageApi">UploadImageApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/UploadImageApi#v1ImagesUploadPost">v1ImagesUploadPost</a></li>
+          </ul>
+        </div>
+      </div>
+    <div class="non-sidebar">
+      <div class="main-content">
+        <h2>Getting Started</h2>
+        <p>To begin using your fancy HTTP API, follow the steps below.</p>
+        <p>You can add some helpful tips, here</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
