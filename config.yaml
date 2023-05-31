@@ -1,0 +1,3178 @@
+openapi: 3.0.0
+info:
+  title: Ecommerce New Version
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080/'
+  - url: 'https://api.ecomx.vn'
+  - url: 'http://{{kytesoft_host}}'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
+  schemas: {}
+tags:
+  - name: App
+  - name: App > Category
+  - name: App > Auth
+  - name: App > Blog
+  - name: App > Contact
+  - name: App > Tag
+  - name: App > User
+  - name: App > Product
+  - name: App > Product > Like
+  - name: App > Product > View
+  - name: App > Comment
+  - name: App > Comment > Product
+  - name: App > Comment > Product > SubComment
+  - name: App > Comment > Newsfeed
+  - name: App > Store
+  - name: App > Store > Follow
+  - name: App > BuyGroup
+  - name: App > Home
+  - name: App > Newsfeed
+  - name: App > Address
+  - name: App > Service
+  - name: App > Order
+  - name: App > Delivery
+  - name: Seller
+  - name: Seller > Address
+  - name: Seller > Seller
+  - name: Seller > Banner
+  - name: Seller > Auth
+  - name: Seller > Article
+  - name: Seller > Tag
+  - name: Seller > User
+  - name: Seller > Product
+  - name: Seller > Product > Fake
+  - name: Seller > Comment
+  - name: Seller > Comment > Product
+  - name: Seller > Store
+  - name: Seller > Blog
+  - name: Seller > Enterprise
+  - name: Seller > Brand
+  - name: Seller > Bank
+  - name: Seller > Contact
+  - name: Seller > Inventory
+  - name: Seller > Category
+  - name: Seller > Order
+  - name: Seller > Newsfeed
+  - name: Admin
+  - name: Admin > Auth
+  - name: Admin > Seller
+  - name: Admin > Article
+  - name: Admin > Tag
+  - name: Admin > User
+  - name: Admin > Product
+  - name: Admin > Comment
+  - name: Admin > Store
+  - name: Admin > Blog
+  - name: Admin > Inventory
+  - name: Admin > Category
+  - name: Admin > Order
+  - name: Admin > Newsfeed
+paths:
+  /consumer/list/category:
+    get:
+      tags:
+        - App > Category
+      summary: List
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/register:
+    post:
+      tags:
+        - App > Auth
+      summary: Register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                avatar: avatar url
+                background: background url
+                username: consumer001
+                firstName: Khoa
+                lastName: Nguyễn
+                gender: other
+                email: nbdkhoa@gmail.com
+                phone: '0987656543'
+                birthday: 25/01/1993
+                password: aaAA11!!
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/register/phone:
+    post:
+      tags:
+        - App > Auth
+      summary: Phone Register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone: '0989875351'
+                password: aaAA11!!
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/login:
+    post:
+      tags:
+        - App > Auth
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: consumer001
+                password: aaAA11!!
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/user:
+    get:
+      tags:
+        - App > Auth
+      summary: User
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - App > Auth
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 645b6e2e97f190f66a16bc78
+                avatar: avatar url2
+                background: background url2
+                name: Nguyễn Khoa2
+                email: nbdkhoa@gmail.com2
+                phone: '0987656542'
+                birthday: '1993-05-10T17:13:02.244868Z'
+                gender: other
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/user/update/address:
+    patch:
+      tags:
+        - App > Auth
+      summary: Update Default Address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                addressId: 646ed94e8ad915a062cf4d6c
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/renew_access:
+    post:
+      tags:
+        - App > Auth
+      summary: Refresh Token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                refreshToken: eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQ2MzQ5NTgsImp0aSI6IjhmMDQ4Y2RjLTczMGUtNGU1ZC04OTUwLWU5OTViY2JkMDJhZiIsImlzcyI6ImVjb21tZXJjZSIsImlkIjoiNjQ2MTg1NmYxNTQ3M2NhMTMwMjA0N2E3Iiwicm9sZSI6IkNPTlNVTUVSIn0.ZtxRNcfUIZV2ryfIsjUdI6UrpDQh-bNdWuYYwxBP12d2lIQALams4D-G21qsGr48HfhBhXlbL87QTM1MvjAfN4j8PgtYI6jej1eD5bEa1WLSyWOijA-Ev35M-gq6ZCsxqwL83KRNUd5_vyYBCQQeh4ANSP8ktOMiUPv5QotKiUJkAQFhcpdsG2UMG93k3n9uXYylnH0dfQTG9pnAm30ZvGIvuheM_QxCuO678rydj0Up1HbPXwL6LP9dRzfSBKR91ql5w_thEUfdaD1nY7foRN-LBJJ8jtFbzQJrQPBkTgYdG47HI35kMA9spCFIEQZ8jLxRgn1jPNbfO-P1tGjVhObZ23iGUhNSRbfRvcjlM73G9oL-6ldSrt1uc7SWx0qaTKOzhn6dDTMePDznj5zCdf9lO2iz16xcnCcc1e9Xku3u3WHjv8F1z3-lKlXaJ0I2gkHv3qXNwTcp-_lxms4eUuLgTOn2NYoYy9at61tLffZMEuTmgpuKzCb8fhrkhSfEvqBob_Q4Ny-TSYjTbqSFpm-mqcTdd-kj2T-t8VncyZcTpp59Ih4jc8lBer6Fg-vWhQNg6Z9D4Q0LrniPYxbCOca35Oj0YCij8y_8vuF3ONshLP8eMApXjrbjdxGZ0B8uHeR8NPuISPlMqL7Bwe60cB5p3Z4pHt0ChPpCjTci4gU
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/blogs:
+    get:
+      tags:
+        - App > Blog
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: name
+          in: query
+          schema:
+            type: string
+          example: CAM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/articles/6304a736-c3ed-4b5f-a081-1610aea2ad9f:
+    get:
+      tags:
+        - Admin > Article
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/blog:
+    patch:
+      tags:
+        - App > Blog
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 645b25c0edfb1b78fb86e65a
+                categoryId: 644bf683b9f3e07509eb613a
+                storeId: 644f1e8ffeeb8e1bb3b5cf04
+                name: test4
+                content: Mô tả bài viết
+                description: Mô tả bài ngắn của bài viết
+                slug: test5
+                images:
+                  - image_url_test13
+                  - image_url_test23
+                  - image_url_test33
+                tags:
+                  - tag 1 image_url_test13
+                  - tag 2 image_url_test23
+                  - tag 3 image_url_test33
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - App > Home
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/article:
+    delete:
+      tags:
+        - Admin > Article
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Article
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test2
+                slug: test2
+                description: description
+                content: content
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Admin > Article
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test333
+                slug: test333
+                description: description333
+                content: content333
+                id: 6304a736-c3ed-4b5f-a081-1610aea2ad9f
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/contact:
+    post:
+      tags:
+        - App > Contact
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: name1
+                email: email@gmail.com
+                phone: '0989876565'
+                message: message 1
+                subject: subject 1
+                storeId: 644f1e8ffeeb8e1bb3b5cf04
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/contact/645b3faa89a707379c99d966:
+    get:
+      tags:
+        - App > Contact
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/tag:
+    post:
+      tags:
+        - Admin > Tag
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test2
+                slug: test2
+                description: description
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Admin > User
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: a37181f5-c7f5-47ab-acba-1c6335b18790
+                name: test3
+                slug: test3
+                description: description3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > User
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/tags:
+    get:
+      tags:
+        - Admin > User
+      summary: List
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/tags/a37181f5-c7f5-47ab-acba-1c6335b18790:
+    get:
+      tags:
+        - Admin > User
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/users/exist:
+    get:
+      tags:
+        - App > User
+      summary: Exist
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: phone
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/register:
+    post:
+      tags:
+        - App > User
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test2
+                slug: test2
+                description: description
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/product/like:
+    post:
+      tags:
+        - App > Product > Like
+      summary: Like
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                productId: 6461b4d815473ca1302047ae
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/products/like:
+    get:
+      tags:
+        - App > Product > Like
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/products/view:
+    get:
+      tags:
+        - App > Product > View
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/product:
+    post:
+      tags:
+        - App > Product
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: product 7000
+                slug: test5
+                options:
+                  - code: option1
+                    name: Màu sắc
+                    values:
+                      - Đen
+                      - Đỏ
+                      - Vàng
+                  - code: option2
+                    name: Kích thước
+                    values:
+                      - M
+                      - L
+                      - XL
+                      - XXL
+                attributes:
+                  - name: Màu sắc3
+                    option1: Vàng3
+                    option2: Đen3
+                    image: url attribute 13
+                    quantity: 43
+                    sold: 13
+                    price: 123000
+                    groupPrice: 130000
+                  - name: Màu sắc4
+                    option1: Vàng5
+                    option2: Đen6
+                    image: url attribute 13
+                    quantity: 43
+                    sold: 13
+                    price: 123000
+                    groupPrice: 130000
+                images:
+                  - image_url_test13
+                  - image_url_test23
+                  - image_url_test33
+                price: 25000
+                groupPrice: 103000
+                discount: 12000
+                description: hahaha this is description3
+                shortDescription: haha this is sub description3
+                category:
+                  id: 644b85e2651ed5717333a347
+                  name: category Id hahah3
+                  slug: lala
+                quantity: 33
+                brand:
+                  id: 6440b3ac3dd818d4b18a541e
+                  name: HAHA LALA3
+                  slug: lala
+                origin: HQ3
+                store:
+                  name: HAHAHAHA
+                  slug: lalalala
+                inventory:
+                  name: HAPPY STORE
+                  location: Nước ngoài
+                rating: 5
+                commentNum: 10
+                sold: 12
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/products:
+    get:
+      tags:
+        - Admin > Comment
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/products/6461b4d815473ca1302047ae:
+    get:
+      tags:
+        - App > Product
+      summary: Detail
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/product/6461b4d815473ca1302047ae:
+    get:
+      tags:
+        - App > Product
+      summary: Detail Auth
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/product:
+    patch:
+      tags:
+        - App > Home
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 644209c0967878b3012ac344
+                name: test0
+                attributes:
+                  - name: Màu sắc10
+                    image: url attribute0
+                    value: Vàng0
+                    quantity: 0
+                    sold: 0
+                    price: 1023000
+                    groupPrice: 1030000
+                slug: test0
+                images:
+                  - image_url_test0
+                  - image_url_test20
+                  - image_url_test30
+                price: 1020300
+                groupPrice: 10003000
+                description: hahaha this is description0
+                subDescription: haha this is sub description0
+                categoryId: category Id hahah0
+                quantity: 330
+                sold: 110
+                brand:
+                  id: 6440b3ac3dd818d4b18a541e
+                  name: HAHA LALA0
+                origin: HQ0
+                storeId: 230
+                inventoryId: 430
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Order
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/subcomment/product:
+    post:
+      tags:
+        - App > Comment > Product > SubComment
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                content: Very Nice
+                commentId: 6464771bc31d61146fab6dda
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/subcomments/product:
+    get:
+      tags:
+        - App > Comment > Product > SubComment
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: commentId
+          in: query
+          schema:
+            type: string
+          example: 646d64898fad821314f4acf6
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/subcomment/like/product:
+    post:
+      tags:
+        - App > Comment > Product > SubComment
+      summary: Like
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                subCommentId: 6461b4d815473ca1302047ae
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/comment/product:
+    post:
+      tags:
+        - App > Comment > Product
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                content: Very Nice
+                likeNum: 10
+                rating: 5
+                productId: 646c741e64587d643e7c2036
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/comments/product:
+    get:
+      tags:
+        - Seller > Comment > Product
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/comment/like/product:
+    post:
+      tags:
+        - App > Comment > Product
+      summary: Like
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                commentId: 6461b4d815473ca1302047ae
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/comment/newsfeed:
+    post:
+      tags:
+        - App > Comment > Newsfeed
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                content: Nội dung của comment
+                newsfeedId: 644b7b76651ed5717333a342
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/comments/newsfeed:
+    get:
+      tags:
+        - App > Comment > Newsfeed
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: newsfeedId
+          in: query
+          schema:
+            type: string
+          example: 6440b3ac3dd818d4b18a541e
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/comment/like/newsfeed:
+    post:
+      tags:
+        - App > Comment > Newsfeed
+      summary: Like
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                commentId: 6461b4d815473ca1302047ae
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/store/follow:
+    post:
+      tags:
+        - App > Store > Follow
+      summary: Follow
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                storeId: 644f1e8ffeeb8e1bb3b5cf04
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/stores/follow:
+    get:
+      tags:
+        - App > Store > Follow
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/stores/644f1e8ffeeb8e1bb3b5cf04:
+    get:
+      tags:
+        - App > Store
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/stores/like:
+    post:
+      tags:
+        - App > Store
+      summary: Like
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 644209c0967878b3012ac344
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/buyGroup:
+    post:
+      tags:
+        - App > BuyGroup
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Nguyễn Bá Đăng Khoa
+                avatar: url avatar
+                minBuyNum: 2
+                productId: 644cc556272cf8df18db1042
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/buyGroups:
+    get:
+      tags:
+        - App > BuyGroup
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: productId
+          in: query
+          schema:
+            type: string
+          example: 644cc556272cf8df18db1042
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/products/644b863088be71f8d066f809:
+    get:
+      tags:
+        - App > BuyGroup
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/product/like:
+    post:
+      tags:
+        - App > BuyGroup
+      summary: Like
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 644209c0967878b3012ac344
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/category:
+    post:
+      tags:
+        - Admin > Category
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Thời Trang Nam
+                image: url thời trang nam
+                subCategories:
+                  - name: Quần áo
+                    image: url quan ao
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Admin > Category
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 6448f775ba39880825f5f2c1
+                name: 'Thời Trang Nam '
+                image: url thời trang nam
+                subCategories:
+                  - id: 6448f775ba39880825f5f2c0
+                    name: Quần áo
+                    image: url quan ao
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Category
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/categories:
+    get:
+      tags:
+        - Admin > Category
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/categories/6448f775ba39880825f5f2c1:
+    get:
+      tags:
+        - Admin > Category
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/products/64432e150fb122c5f77bdb26:
+    get:
+      tags:
+        - App > Home
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/products/6440b3ac3dd818d4b18a541e:
+    get:
+      tags:
+        - App > Home
+      summary: Detail Copy
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/newsfeed:
+    post:
+      tags:
+        - App > Newsfeed
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - App > Newsfeed
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - App > Newsfeed
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/newsfeeds:
+    get:
+      tags:
+        - App > Newsfeed
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/newsfeeds/644b4dd25e9a55b2ad053a69:
+    get:
+      tags:
+        - App > Newsfeed
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/store:
+    post:
+      tags:
+        - Admin > Store
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test4
+                slug: test5
+                description: hahaha this is description3
+                avatar: avatar url
+                background: background url
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Admin > Order
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _id: 6442bc33c35e745ae483c0fe
+                name: test4
+                slug: test5
+                description: hahaha this is description3
+                avatar: avatar url
+                background: background url
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/stores:
+    get:
+      tags:
+        - Admin > Order
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/stores/6442bc33c35e745ae483c0fe:
+    get:
+      tags:
+        - Admin > Order
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/address:
+    post:
+      tags:
+        - App > Address
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test4
+                phone: '0989876565'
+                province: Hồ Chí Minh
+                provinceId: 7f8as78fd8asdff8a9sf
+                district: Quận 1
+                districtId: 89f8a9sdf9faf8s9f
+                ward: Phường Bến Nghé
+                wardId: f89as89df8a9s8df9
+                address: 120 Trần Hưng Đạo
+                type: Nhà riêng
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Seller > Address
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 645b6e3d97f190f66a16bc79
+                name: test1
+                phone: '0989876561'
+                province: Hồ Chí Minh1
+                provinceId: 7f8as78fd8asdff8a9sf1
+                district: Quận 11
+                districtId: 89f8a9sdf9faf8s9f1
+                ward: Phường Bến Nghé1
+                wardId: f89as89df8a9s8df91
+                address: 120 Trần Hưng Đạo1
+                type: Nhà riêng1
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Seller > Address
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/addresses:
+    get:
+      tags:
+        - App > Address
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /delivery/v1/address/province:
+    get:
+      tags:
+        - App > Service
+      summary: Province
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /delivery/v1/address/ward:
+    get:
+      tags:
+        - App > Address
+      summary: Ward
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: districtId
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/addresses/645b6e3d97f190f66a16bc79:
+    get:
+      tags:
+        - Seller > Address
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/addresses/default:
+    get:
+      tags:
+        - App > Address
+      summary: Default
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/service:
+    post:
+      tags:
+        - App > Service
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test4
+                phone: '0989876565'
+                province: Hồ Chí Minh
+                provinceId: 7f8as78fd8asdff8a9sf
+                district: Quận 1
+                districtId: 89f8a9sdf9faf8s9f
+                ward: Phường Bến Nghé
+                wardId: f89as89df8a9s8df9
+                address: 120 Trần Hưng Đạo
+                type: Nhà riêng
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/services:
+    get:
+      tags:
+        - App > Service
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/order/delivery/preview:
+    post:
+      tags:
+        - App > Order
+      summary: PREVIEW
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                productId: 646c740e64587d643e7c1fe8
+                quantity: 2
+                isGroupBuy: false
+                phone: '0977666812'
+                address: ngõ 1 phu do
+                wardId: 1009
+                paymentType: type-payment-1
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/order:
+    post:
+      tags:
+        - App > Order
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Nguyễn Khoa
+                productId: 6450391104c4b2260daced4c
+                quantity: 2
+                isGroupBuy: true
+                phone: '0989876565'
+                address: 12 Lý Thường Kiệt quận 5 tp Hồ Chí Minh
+                paymentType: CASH
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/orders:
+    get:
+      tags:
+        - App > Order
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/consumer/orders/64503acfbf5ec4cdb1891235:
+    get:
+      tags:
+        - App > Order
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/newsfeed:
+    post:
+      tags:
+        - Admin > Newsfeed
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test4
+                slug: test5
+                description: hahaha this is description3
+                avatar: avatar url
+                background: background url
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Admin > Newsfeed
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _id: 6442bc33c35e745ae483c0fe
+                name: test4
+                slug: test5
+                description: hahaha this is description3
+                avatar: avatar url
+                background: background url
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Newsfeed
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/newsfeeds:
+    get:
+      tags:
+        - Admin > Newsfeed
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/newsfeeds/6442bc33c35e745ae483c0fe:
+    get:
+      tags:
+        - Admin > Newsfeed
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/address:
+    post:
+      tags:
+        - Seller > Address
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test4
+                phone: '0989876565'
+                province: Hồ Chí Minh
+                provinceId: 7f8as78fd8asdff8a9sf
+                district: Quận 1
+                districtId: 89f8a9sdf9faf8s9f
+                ward: Phường Bến Nghé
+                wardId: f89as89df8a9s8df9
+                address: 120 Trần Hưng Đạo
+                type: Nhà riêng
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/addresses:
+    get:
+      tags:
+        - Seller > Address
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/seller:
+    post:
+      tags:
+        - Seller > Seller
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                avatar: avatar url
+                background: background url
+                username: seller002
+                fullName: Nguyễn Khoa
+                gender: other
+                email: nbdkhoa@gmail.com
+                phone: '0989875353'
+                birthday: 25/01/1993
+                password: aaAA11!!
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/sellers:
+    get:
+      tags:
+        - Seller > Seller
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/products/645adcb3a7293ceedfca27c9:
+    get:
+      tags:
+        - Seller > Seller
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/seller:
+    patch:
+      tags:
+        - Admin > Seller
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 645bd8d41c7d5e9e5a46d15b
+                username: thegioicanhquan
+                avatar: avatar url
+                background: background url
+                fullName: Nguyễn Tú
+                email: thegioicanhquan@gmail.com
+                phone: '0949615709'
+                birthday: '2023-05-10T17:48:04.308837736Z'
+                gender: male
+                role: ADMIN_SELLER
+                storeId: ''
+                isActive: false
+                likedProductIds: null
+                followedStoreIds: null
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Seller
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                avatar: avatar url
+                background: background url
+                role: ADMIN_SELLER
+                username: thegioicanhquan
+                fullName: Nguyễn Tú
+                gender: male
+                email: thegioicanhquan@gmail.com
+                phone: '0949615709'
+                birthday: 01/01/1991
+                password: TheGioiCanhQuan@123
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Seller
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/product:
+    delete:
+      tags:
+        - Admin > Store
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Admin > Comment
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 644b844a2e0fd2b3efbd2885
+                name: test0
+                attributes:
+                  - name: Màu sắc10
+                    image: url attribute0
+                    value: Vàng0
+                    quantity: 0
+                    sold: 0
+                    price: 1023000
+                    groupPrice: 1030000
+                slug: test0
+                images:
+                  - image_url_test0
+                  - image_url_test20
+                  - image_url_test30
+                price: 1020300
+                groupPrice: 10003000
+                description: hahaha this is description0
+                subDescription: haha this is sub description0
+                categoryId: category Id hahah0
+                quantity: 330
+                sold: 110
+                brand:
+                  id: 6440b3ac3dd818d4b18a541e
+                  name: HAHA LALA0
+                origin: HQ0
+                storeId: 230
+                inventoryId: 430
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Product
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/banner:
+    post:
+      tags:
+        - Seller > Banner
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: banner1
+                description: description 1
+                image: image banner url
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Seller > Banner
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 645b15b6c2b45943eb1d4ecf
+                title: banner2
+                description: description 2
+                image: image banner url2
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Seller > Banner
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/banners:
+    get:
+      tags:
+        - Seller > Banner
+      summary: List
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/banners/645b1572c2b45943eb1d4ece:
+    get:
+      tags:
+        - Seller > Banner
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/users/exist:
+    get:
+      tags:
+        - Admin > Auth
+      summary: Exist
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: phone
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/register:
+    post:
+      tags:
+        - Seller > Auth
+      summary: Register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                avatar: avatar url
+                background: background url
+                username: tranducnguyen
+                firstName: Nguyễn
+                lastName: Khoa
+                gender: other
+                email: nbdkhoa@gmail.com
+                phone: '0987656565'
+                birthday: 25/01/1993
+                password: EcomxEcommerce
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/login:
+    post:
+      tags:
+        - Seller > Auth
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: tranducnguyen
+                password: EcomxEcommerce
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/user:
+    get:
+      tags:
+        - Seller > Auth
+      summary: User
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/store:
+    get:
+      tags:
+        - Seller > Auth
+      summary: Store
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Seller > Store
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test4
+                slug: test5
+                description: hahaha this is description3
+                avatar: avatar url
+                businessType: Công ty cổ phần
+                sellerType: Việt Nam
+                background: background url
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/enterprise:
+    get:
+      tags:
+        - Seller > Auth
+      summary: Enterprise
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Seller > Enterprise
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Enterprise MALL
+                storeID: 644f1e8ffeeb8e1bb3b5cf04
+                taxCode: OSKD7878DHKS76D
+                address: 12 Lý Chính Thắng
+                email: kyet@gmail.com
+                ownerName: Nguyễn Khoa
+                IDNumber: 898989f8f9as8d9fa
+                Phone: '0987654567'
+                OwnerEmail: kytesof@gmail.com
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/bankAccount:
+    get:
+      tags:
+        - Seller > Auth
+      summary: Bank
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/changePassword:
+    post:
+      tags:
+        - Seller > Auth
+      summary: Change Password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                password: EcomxEcommerce1
+                newPassword: EcomxEcommerce
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/changeEmail:
+    post:
+      tags:
+        - Seller > Auth
+      summary: Change Email
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: tranducnguyen@gmail.com
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/changeStoreName:
+    post:
+      tags:
+        - Seller > Auth
+      summary: Change Store Name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: haha hihi
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/articles:
+    get:
+      tags:
+        - Admin > Article
+      summary: List
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/register:
+    post:
+      tags:
+        - Admin > User
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                avatar: avatar url
+                background: background url
+                username: nbdkhoa
+                fullName: Nguyễn Khoa
+                gender: other
+                email: nbdkhoa@gmail.com
+                phone: '0989871311'
+                birthday: 25/01/1993
+                password: aaAA11!!
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/fake:
+    get:
+      tags:
+        - Seller > Product > Fake
+      summary: Fake
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/product:
+    post:
+      tags:
+        - Seller > Product
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/products/646c73f964587d643e7c1fc4:
+    get:
+      tags:
+        - Seller > Product
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/products/644b844a2e0fd2b3efbd2885:
+    get:
+      tags:
+        - Admin > Comment
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/store:
+    post:
+      tags:
+        - Admin > Store
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                type: Mall
+                name: Cửa hàng quần áo
+                avatar: 'https://kynguyenlamdep.com/wp-content/uploads/2022/06/anh-gai-xinh-cuc-dep.jpg'
+                background: 'https://images.unsplash.com/photo-1553095066-5014bc7b7f2d'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Admin > Store
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 644f1e8ffeeb8e1bb3b5cf04
+                name: Cửa hàng quần áo
+                avatar: 'https://kynguyenlamdep.com/wp-content/uploads/2022/06/anh-gai-xinh-cuc-dep.jpg'
+                background: 'https://images.unsplash.com/photo-1553095066-5014bc7b7f2d'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/stores:
+    get:
+      tags:
+        - Seller > Store
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/stores/644f1e8ffeeb8e1bb3b5cf04:
+    get:
+      tags:
+        - Admin > Store
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/blog:
+    post:
+      tags:
+        - Seller > Blog
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test4
+                categoryId: 644bf683b9f3e07509eb613a
+                slug: test5
+                content: Mô tả bài viết
+                description: Mô tả bài ngắn của bài viết
+                images:
+                  - image_url_test13
+                  - image_url_test23
+                  - image_url_test33
+                tags:
+                  - tag 1 image_url_test13
+                  - tag 2 image_url_test23
+                  - tag 3 image_url_test33
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Seller > Blog
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/blogs:
+    get:
+      tags:
+        - Seller > Blog
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/blogs/644bf0c5b9f3e07509eb6137:
+    get:
+      tags:
+        - Admin > Blog
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/blog:
+    patch:
+      tags:
+        - Admin > Blog
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 644bf65ab9f3e07509eb6139
+                name: test1
+                content: Mô tả bài viết
+                description: Mô tả bài ngắn của bài viết
+                slug: test5
+                images:
+                  - image_url_test13
+                  - image_url_test23
+                  - image_url_test33
+                tags:
+                  - tag 1 image_url_test13
+                  - tag 2 image_url_test23
+                  - tag 3 image_url_test33
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Blog
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Blog
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test4
+                categoryId: 644bf683b9f3e07509eb613a
+                slug: test5
+                content: Mô tả bài viết
+                description: Mô tả bài ngắn của bài viết
+                images:
+                  - image_url_test13
+                  - image_url_test23
+                  - image_url_test33
+                tags:
+                  - tag 1 image_url_test13
+                  - tag 2 image_url_test23
+                  - tag 3 image_url_test33
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/enterprises:
+    get:
+      tags:
+        - Seller > Enterprise
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/brand:
+    post:
+      tags:
+        - Seller > Brand
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Enterprise MALL
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Seller > Brand
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 646aeb0c1d9bf9dfb0080e9b
+                name: ANTA
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Seller > Brand
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/brands:
+    get:
+      tags:
+        - Seller > Brand
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/brands/646ae9c10540afc9993cd9ed:
+    get:
+      tags:
+        - Seller > Brand
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/bank:
+    post:
+      tags:
+        - Seller > Bank
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Nguyễn Khoa
+                storeID: 644f1e8ffeeb8e1bb3b5cf04
+                paymentType: Chuyển khoản ngân hàng
+                email: khoa@gmail.com
+                bankName: Ngân hàng Á Châu
+                accountNumber: '9876546742'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Seller > Bank
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 645b25c0edfb1b78fb86e65a
+                name: test1
+                content: Mô tả bài viết
+                description: Mô tả bài ngắn của bài viết
+                slug: test5
+                images:
+                  - image_url_test13
+                  - image_url_test23
+                  - image_url_test33
+                tags:
+                  - tag 1 image_url_test13
+                  - tag 2 image_url_test23
+                  - tag 3 image_url_test33
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Seller > Bank
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/banks:
+    get:
+      tags:
+        - Seller > Bank
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/banks/644bf0c5b9f3e07509eb6137:
+    get:
+      tags:
+        - Seller > Bank
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/contacts:
+    get:
+      tags:
+        - Seller > Contact
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/contact:
+    patch:
+      tags:
+        - Seller > Contact
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 645b3faa89a707379c99d966
+                name: name2
+                email: email@gmail.com2
+                phone: '0989876562'
+                message: message 2
+                subject: subject 2
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Seller > Contact
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/inventory:
+    post:
+      tags:
+        - Seller > Inventory
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Kho phụ
+                contact: Nguyễn Văn An
+                phone: '0989876543'
+                street: street 123
+                location: background url
+                provinceId: 1
+                districtId: 2
+                wardId: 3
+                isExport: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Seller > Inventory
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 64657cc4c31d61146fab6def
+                name: Kho  tổng
+                contact: Nguyễn Văn A1snn
+                phone: '0989876543'
+                street: street 123
+                location: background url
+                provinceId: 1
+                districtId: 1
+                wardId: 1
+                isExport: false
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/inventories:
+    get:
+      tags:
+        - Seller > Inventory
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/seller/inventories/64657cc4c31d61146fab6def:
+    get:
+      tags:
+        - Seller > Inventory
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/inventory:
+    delete:
+      tags:
+        - Admin > Inventory
+      summary: Delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Inventory
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Kho phụ
+                contact: Nguyễn Văn An
+                phone: '0989876543'
+                street: street 123
+                location: background url
+                provinceId: 1
+                districtId: 2
+                wardId: 3
+                isExport: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Admin > Inventory
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 6448e46e0461a201d2d6bdd0
+                name: Kho  tổng
+                contact: Nguyễn Văn An
+                phone: '0989876543'
+                street: street 123
+                location: background url
+                isExport: false
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/order:
+    post:
+      tags:
+        - Admin > Order
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test4
+                slug: test5
+                description: hahaha this is description3
+                avatar: avatar url
+                background: background url
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/login:
+    post:
+      tags:
+        - Admin > Auth
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: tranducnguyen
+                password: EcomxEcommerce
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/user:
+    get:
+      tags:
+        - Admin > Auth
+      summary: User
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/sellers:
+    get:
+      tags:
+        - Admin > Seller
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/sellers/64548d415583dff05ef37170:
+    get:
+      tags:
+        - Admin > Seller
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/products/6455a8887b733d10e0dffbcd:
+    get:
+      tags:
+        - Admin > Product
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/comment:
+    post:
+      tags:
+        - Admin > Comment
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/stores:
+    get:
+      tags:
+        - Admin > Store
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/blogs:
+    get:
+      tags:
+        - Admin > Blog
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/inventories:
+    get:
+      tags:
+        - Admin > Inventory
+      summary: List
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/admin/inventories/6448e46e0461a201d2d6bdd0:
+    get:
+      tags:
+        - Admin > Inventory
+      summary: Detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+x-internal: false
